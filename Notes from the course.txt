@@ -1,0 +1,67 @@
+Planning the App
+
+------------------------------------------------> Angular Material
+Angular Component Suite: Pre-Built and Styled Components
+
+Component Building Utilities --> @angular/cdk 
+Concrete Component Implementations (using Material Design Spec)
+
+-------------------------------------------------> Project Setup
+You can visit https://material.angular.io/
+
+1. Install the angular/cli: npm install -g @angular/cli 
+2. Create a new project: ng new fitness-tracker
+3. Inside of the project: npm install --save angular/material2-builds angular/cdk-builds angular/animations-builds
+All the Angular-Material steps are listed on the link provided above
+--> Gesture Support (for mobile devices) ---> npm install --save hammerjs(needs to be included in the main.ts file)
+    import 'hammerjs';
+
+--> Take a look on material icons 
+
+ng g c auth/signup --module app.module
+
+----------------------------------------------------> Angular Flex Layout
+Documentation
+    Static API
+    Response API
+
+It is a package that uses flexbox css behind the scenes
+
+npm install --save 
+
+
+----------------------------------------------------> Flexbox
+html----->
+<section id="container">
+    <div id="child1" class="child"></div>
+    <div id="child2" class="child"></div>
+    <div id="child3" class="child"></div>
+</section>
+
+css------>
+#container {
+    display: flex;
+    width: 100%;
+    height: 700px;
+    border: 1px solid black; 
+    flex-direction: row; 
+    justify-content: flex-start;/*main axis*/
+    align-items: center;/*cross axis*/
+}
+
+.child {
+    width: 200px;
+    height: 200px;
+}
+
+#child1 {
+    background-color: red;
+}
+
+#child2 {
+    background-color: green;
+}
+
+#child3 {
+    background-color: blue;
+}
