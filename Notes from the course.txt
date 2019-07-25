@@ -66,4 +66,8 @@ css------>
     background-color: blue;
 }
 
-
+https://github.com/angular/flex-layout/wiki/API-Documentation
+npm install --save @angular/flex-layout
+--> In app.module.ts 
+    import { FlexLayoutModule } from '@angular/flex-layout';
+    imports: [FlexLayoutModule]
