@@ -17,10 +17,15 @@ All the Angular-Material steps are listed on the link provided above
     import 'hammerjs';
 
 --> Take a look on material icons 
+https://material.io/resources/icons/?style=baseline
 
 ng g c auth/signup --module app.module
 
 ----------------------------------------------------> Angular Flex Layout
+https://github.com/angular/flex-layout/wiki/Declarative-API-Overview
+
+https://github.com/angular/flex-layout/wiki/Responsive-API
+
 Documentation
     Static API
     Response API
