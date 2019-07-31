@@ -76,3 +76,8 @@ npm install --save @angular/flex-layout
 --> In app.module.ts 
     import { FlexLayoutModule } from '@angular/flex-layout';
     imports: [FlexLayoutModule]
+
+
+In app.module.ts
+//If the compponent is not being rendered by a selector or by routing (instaciated)
+    entryComponents: [StopTrainingComponent] //This is because this component is being rendered by another component

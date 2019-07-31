@@ -18,6 +18,7 @@ import { PastTrainingsComponent } from './training/past-trainings/past-trainings
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { StopTrainingComponent } from './training/current-training/stop-training.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     PastTrainingsComponent,
     WelcomeComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    StopTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //If the compponent is not being rendered by a selector or by routing (instaciated)
+  entryComponents: [StopTrainingComponent] //This is because this component is being rendered by another component
 })
 export class AppModule { }
