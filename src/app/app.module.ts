@@ -20,6 +20,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { StopTrainingComponent } from './training/current-training/stop-training.component';
 import { AuthService } from './auth/auth.service';
+import { TrainingService } from './training/training.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { AuthService } from './auth/auth.service';
     FormsModule,
     ReactiveFormsModule 
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
   //If the compponent is not being rendered by a selector or by routing (instaciated)
   entryComponents: [StopTrainingComponent] //This is because this component is being rendered by another component
