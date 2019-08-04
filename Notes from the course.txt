@@ -88,4 +88,4 @@ rxjs is the library responsible for observables
 npm install --save rxjs-compat
 
 =========================================================> Angular, Firebase and AngularFire 2
-
+angularFire: 
