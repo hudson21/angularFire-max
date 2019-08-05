@@ -89,3 +89,39 @@ npm install --save rxjs-compat
 
 =========================================================> Angular, Firebase and AngularFire 2
 angularFire: 
+https://github.com/angular/angularfire2
+
+npm install --save angularfire2 firebase
+
+-------------------------------------> Observables
+Examples:
+1.
+    ngOnInit() {  
+    this.exercises = this.db
+    .collection('availableExercises')
+    .valueChanges();
+  }
+
+2. 
+    ngOnInit() {  
+    //valueChanges, snapshotChanges 
+    this.db
+    .collection('availableExercises')
+    .snapshotChanges()
+    .subscribe(result => console.log(result));
+  }
+
+
+
+
+-->Observable 
+
+--->Subscription
+
+-->Observer (next, error, complete) functions 
+
+Operators can be used between the observable's emission and the response:
++ They run before we receive the value by a subscription in another component
+    map operator is one of these ones
+
+--------------------------------------> Cloud Firestore 
