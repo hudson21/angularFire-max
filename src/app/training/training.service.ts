@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Exercise } from './exercise.model';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { UIService } from '../shared/ui.service';
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class TrainingService {
     private runningExercise: Exercise;
     private firebaseSubscriptions: Subscription[] = []; 
 
-    constructor(private db: AngularFirestore) {}
+    constructor(private db: AngularFirestore, private uiService: UIService) {}
 
     fetchAvailableExercises() {
         //valueChanges, snapshotChanges 
@@ -35,6 +36,7 @@ export class TrainingService {
                 });
             }))
             .subscribe((exercises: Exercise[]) => {
+                this.uiService.loadingStateChanged.next(false);
                 this.availableExercises = exercises;
                 this.exercisesChanged.next([...this.availableExercises]);
             })

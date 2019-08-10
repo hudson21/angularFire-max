@@ -25,6 +25,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { StopTrainingComponent } from './training/current-training/stop-training.component';
 import { AuthService } from './auth/auth.service';
 import { TrainingService } from './training/training.service';
+import { UIService } from './shared/ui.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { TrainingService } from './training/training.service';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, TrainingService],
+  providers: [AuthService, TrainingService, UIService],
   bootstrap: [AppComponent],
   //If the compponent is not being rendered by a selector or by routing (instaciated)
   entryComponents: [StopTrainingComponent] //This is because this component is being rendered by another component
