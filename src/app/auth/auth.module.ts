@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; //CommonModule is for ngIf and so on...
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import {  AngularFireAuthModule } from 'angularfire2/auth';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { SharedModule } from '../shared/shared.module';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MaterialModule } from '../material.module';
 
 @NgModule({
     declarations: [
@@ -14,20 +12,14 @@ import { MaterialModule } from '../material.module';
         LoginComponent
     ],
     imports: [
-        CommonModule, 
-        FormsModule, 
         ReactiveFormsModule, 
-        MaterialModule, 
-        FlexLayoutModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        SharedModule
     ],
     exports: [
-        CommonModule, 
-        FormsModule, 
         ReactiveFormsModule, 
-        MaterialModule, 
-        FlexLayoutModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        SharedModule
     ]
 })
 export class AuthModule {}
