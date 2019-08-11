@@ -26,7 +26,7 @@ export class TrainingService {
             .collection('availableExercises')
             .snapshotChanges()
             .pipe(map(docArray => {
-                return docArray.map(doc => {
+                return docArray.map((doc: any) => {
                     return { 
                     id: doc.payload.doc.id,
                     name: doc.payload.doc.data().name,

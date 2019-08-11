@@ -125,3 +125,6 @@ Operators can be used between the observable's emission and the response:
     map operator is one of these ones
 
 --------------------------------------> Cloud Firestore 
+
+
+ng build --prod 
