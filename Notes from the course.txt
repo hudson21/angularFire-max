@@ -128,3 +128,8 @@ Operators can be used between the observable's emission and the response:
 
 
 ng build --prod 
+
+--------------------------------------> NGRX
+
+npm install --save @ngrx/store
+
