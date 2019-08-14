@@ -1,14 +1,32 @@
 import { Action } from '@ngrx/store';
+import { Exercise } from './exercise.model';
 
-export const SET_AUTHENTICATED = '[Auth] Set Authenticated';
-export const SET_UNAUTHENTICATED = '[Auth] Set Unauthenticated';
+export const SET_AVALILABLE_TRAININGS = '[Training] Set Available Trainings';
+export const SET_FINISHED_TRAININGS = '[Training] Set Finished Trainings';
+export const START_TRAINING = '[Training] Start Training';
+export const STOP_TRAINING = '[Training] Stop Training';
 
-export class SetAuthenticated implements Action {
-    readonly type = SET_AUTHENTICATED;
+export class SetAvailableTrainings implements Action {
+    readonly type = SET_AVALILABLE_TRAININGS;
+
+    constructor(public payload: Exercise[]) {}
 }
 
-export class SetUnauthenticated implements Action {
-    readonly type = SET_UNAUTHENTICATED;
+export class SetFinishedTrainings implements Action {
+    readonly type = SET_FINISHED_TRAININGS;
+
+    constructor(public payload: Exercise[]) {}
 }
 
-export type AuthActions = SetAuthenticated | SetUnauthenticated;
+export class StartTraining implements Action {
+    readonly type = START_TRAINING;
+
+    constructor(public payload: Exercise) {}
+}
+
+export class StopTraining implements Action {
+    readonly type = STOP_TRAINING;
+}
+
+
+export type TrainingActions = SetAvailableTrainings | SetFinishedTrainings | StartTraining | StopTraining; 
