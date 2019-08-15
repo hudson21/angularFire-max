@@ -44,14 +44,14 @@ export class TrainingService {
                 });
             }))
             .subscribe((exercises: Exercise[]) => {
-                this.store.dispatch(new UI.StartLoading());
+                this.store.dispatch(new UI.StopLoading());
                 this.store.dispatch(new Training.SetAvailableTrainings(exercises));
                 //this.uiService.loadingStateChanged.next(false);
                 //this.availableExercises = exercises;
                 //this.exercisesChanged.next([...this.availableExercises]);
 
             }, error => {
-                this.store.dispatch(new UI.StartLoading());
+                this.store.dispatch(new UI.StopLoading());
                 //this.uiService.loadingStateChanged.next(false);
                 //this.uiService.showSnackBar('Fetching Exercises failed, please try again later', null, 3000);
                 //this.exercisesChanged.next(null);
@@ -63,7 +63,7 @@ export class TrainingService {
         //this.runningExercise = this.availableExercises.find(ex => ex.id === selectedId);
         //this.exerciseChanged.next({ ...this.runningExercise });
         this.store.dispatch(new Training.StartTraining(selectedId));
-    }
+      }
 
     completeExercise() {
         this.addDataToDatabase({ 

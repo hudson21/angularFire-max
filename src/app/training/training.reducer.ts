@@ -63,3 +63,4 @@ export const getTrainingState = createFeatureSelector<TrainingState>('training')
 export const getAvailableExercises = createSelector(getTrainingState, (state: TrainingState) => state.availableExercises);
 export const finishedExercises = createSelector(getTrainingState, (state: TrainingState) => state.finishedExercises);
 export const getActiveTraining = createSelector(getTrainingState, (state: TrainingState) => state.activeTraining);
+export const getIsTraining = createSelector(getTrainingState, (state: TrainingState) => state.activeTraining != null);
