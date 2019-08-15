@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
 import * as trainingReducer from './training.reducer'; 
@@ -66,32 +66,36 @@ export class TrainingService {
       }
 
     completeExercise() {
-        this.addDataToDatabase({ 
-            ...this.runningExercise,
-            date: new Date(), 
-            state: 'completed' 
+        this.store.select(trainingReducer.getActiveTraining).pipe(take(1)).subscribe(exercise => {
+            this.addDataToDatabase({ 
+                ...exercise,
+                date: new Date(), 
+                state: 'completed' 
+            });
+            //this.runningExercise = null;
+            //this.exerciseChanged.next(null);
+            this.store.dispatch(new Training.StopTraining());
         });
-        //this.runningExercise = null;
-        //this.exerciseChanged.next(null);
-        this.store.dispatch(new Training.StopTraining());
     }
 
     cancelExercise(progress: number) {
-        this.addDataToDatabase({ 
-            ...this.runningExercise,
-            duration: this.runningExercise.duration * (progress / 100),
-            calories: this.runningExercise.calories * (progress / 100),  
-            date: new Date(), 
-            state: 'cancelled' 
+        this.store.select(trainingReducer.getActiveTraining).pipe(take(1)).subscribe(exercise => {
+            this.addDataToDatabase({ 
+                ...exercise,
+                duration: exercise.duration * (progress / 100),
+                calories: exercise.calories * (progress / 100),  
+                date: new Date(), 
+                state: 'cancelled' 
+            });
+            //this.runningExercise = null;
+            //this.exerciseChanged.next(null);
+            this.store.dispatch(new Training.StopTraining());
         });
-        //this.runningExercise = null;
-        //this.exerciseChanged.next(null);
-        this.store.dispatch(new Training.StopTraining());
     }
     
-    getRunningExercise() {
+    /*getRunningExercise() {
         return { ...this.runningExercise };
-    }
+    }*/
 
     fetchCompletedOrCancelledExercises() {
         this.firebaseSubscriptions.push(
