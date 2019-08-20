@@ -133,3 +133,21 @@ ng build --prod
 
 npm install --save @ngrx/store
 
+--------------------------------------- Steps to upload your Angular App to Firebase Hosting -----------------------------
+
+1. (if you dont have firebase-tools installed globally in your local machine) [npm install -g firebase-tools]
+2. firebase login 
+3. (Inside of your project) [firebase init]
+    1. Hosting: Configure and deploy Firebase Hosting Sites
+4. Choose the public folder
+    1. type dist
+5. firebase deploy
+
+Hosting URL: https://angular-fire-app-9e86b.firebaseapp.com
+
+---------------------------------------- How Material Themes Work ---------------------------------------------------------
+Primary Palette: Most Widely used color across all screens
+Accent Palette: Used on interactive elements 
+Warn Palette: Convey warnings
+Foreground Palette: For text and icons 
+Background Palette: For backgrounds
